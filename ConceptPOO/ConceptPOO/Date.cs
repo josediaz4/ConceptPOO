@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ConceptPOO
+﻿namespace ConceptPOO
 {
     public class Date
     {
@@ -27,7 +21,7 @@ namespace ConceptPOO
             }
 
             int[] daysPerMonth = { 0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
-            if(day >=1 && day <= daysPerMonth[month])
+            if (day >= 1 && day <= daysPerMonth[month])
             {
                 return day;
             }
@@ -62,7 +56,7 @@ namespace ConceptPOO
 
         private int CheckMonth(int month)
         {
-            if(month>=1 && month<=12)
+            if (month >= 1 && month <= 12)
             {
 
                 return month;
