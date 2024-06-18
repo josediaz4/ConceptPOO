@@ -1,5 +1,6 @@
 ﻿
 using ConceptPOO;
+using System.Linq.Expressions;
 
 Console.WriteLine("Concepts POO");
 Console.WriteLine("============");
@@ -26,9 +27,9 @@ Employee employee1 = new SalaryEmployee()
     IsActive = true,
     Salary = 1815453.40M
 };
-Console.WriteLine("Salary Employee");
-Console.WriteLine(employee1);
-Console.WriteLine("---------------------------");
+//Console.WriteLine("Salary Employee");
+//Console.WriteLine(employee1);
+//Console.WriteLine("---------------------------");
 
 Employee employee2 = new CommisionEmployee()
 {
@@ -41,5 +42,70 @@ Employee employee2 = new CommisionEmployee()
     CommisionPercentaje = 0.03f,
     Sales = 320000000m
 };
-Console.WriteLine("Commission Employee");
-Console.WriteLine(employee2);
+//Console.WriteLine("Commission Employee");
+//Console.WriteLine(employee2);
+//Console.WriteLine("---------------------------");
+
+Employee employee3 = new HourlyEmployee()
+{
+    Id = 3030,
+    FirstName = "Jose",
+    LastName = "Diaz",
+    BirthDate = new Date(1994, 4, 14),
+    HiringDate = new Date(2024, 7, 1),
+    IsActive = true,
+    HourValue = 12356.46M,
+    Hours = 123.5F
+};
+//Console.WriteLine("Hourly Employee");
+//Console.WriteLine(employee3);
+//Console.WriteLine("---------------------------");
+
+Employee employee4 = new BaseCommissionEmployee()
+{
+    Id = 4040,
+    FirstName = "Pepe",
+    LastName = "Grillo",
+    BirthDate = new Date(1991, 3, 1),
+    HiringDate = new Date(2020, 10, 10),
+    IsActive = true,
+    Base = 860678.45M,
+    Sales = 58000000M,
+    CommisionPercentaje = 0.015F
+};
+//Console.WriteLine("Base Commission Employee");
+//Console.WriteLine(employee4);
+//Console.WriteLine("---------------------------");
+
+ICollection<Employee> employees = new List<Employee>()
+{
+    employee1, employee2, employee3, employee4
+};
+
+decimal payroll = 0;
+foreach (Employee employee in employees)
+{
+    Console.WriteLine(employee);
+    payroll += employee.GetValueToPay();
+}
+
+Console.WriteLine("                               ==================");
+Console.WriteLine($"TOTAL                         {$"{payroll:C2}",18}");
+
+Invoice invoice1 = new Invoice()
+{
+    Id = 0001,
+    Description = "iPhone 13",
+    Quantity = 6,
+    Price = 5300000m
+};
+Invoice invoice2 = new Invoice()
+{
+    Id = 0002,
+    Description = "Posta Prem",
+    Quantity = 17.5f,
+    Price = 32000m
+};
+
+Console.WriteLine(invoice1);
+Console.WriteLine(invoice2);
